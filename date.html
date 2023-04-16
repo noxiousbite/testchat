@@ -1,0 +1,13 @@
+from jinja2 import Template
+
+# Load the HTML template
+with open("template.html", "r") as f:
+    template_str = f.read()
+    template = Template(template_str)
+
+# Render the HTML template with the selected activity and food
+html = template.render(activity_choices=[activity[0] for activity in activity_selected],
+                       food_choices=[food[0] for food in food_selected])
+
+# Print the HTML to the console
+print(html)
